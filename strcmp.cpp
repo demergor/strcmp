@@ -3,6 +3,11 @@
 #include <utility>
 
 int main(int argc, const char** argv) {
+  if (argc < 3) {
+    std::cout << "Provide at least \x1b[31m2\x1b[0m string arguments!\n";
+    return 0;
+  }
+
   std::size_t char_idx {0};
   char ch {'x'};
 
@@ -22,9 +27,9 @@ int main(int argc, const char** argv) {
           }
         }
 
-        std::cout << "Mismatch found at position " << char_idx << "! (\x1b[31m" << ch
-                  << "\x1b[0m"
-                  << " vs. \x1b[31m" << argv[arg_idx][char_idx] << "\x1b[0m from "
+        std::cout << "Mismatch found at position " << char_idx << "! ('\x1b[31m" << ch
+                  << "\x1b[0m'"
+                  << " vs. '\x1b[31m" << argv[arg_idx][char_idx] << "\x1b[0m' from "
                   << arg_idx << suffix << " arg" << ")\n";
         return 0;
       }
